@@ -77,7 +77,7 @@ export default function Portfolio() {
           >
             <a href="#contact" className="px-6 py-3 rounded-xl bg-white text-black font-medium hover:bg-gray-300 transition">Contact Me</a>
             <a href="#projects" className="px-6 py-3 rounded-xl border border-gray-700 hover:bg-gray-800 transition">View Projects</a>
-            <a href="/MuzammilaAhmedKhanResume.pdf" download className="px-6 py-3 rounded-xl border border-gray-700 flex items-center gap-2 hover:bg-gray-800 transition">
+            <a href="/MuzammiLaAhmedKhanResume.pdf" download className="px-6 py-3 rounded-xl border border-gray-700 flex items-center gap-2 hover:bg-gray-800 transition">
               <Download size={18} /> Resume
             </a>
           </motion.div>
