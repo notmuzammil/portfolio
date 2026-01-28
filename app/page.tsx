@@ -77,7 +77,7 @@ export default function Portfolio() {
           >
             <a href="#contact" className="px-6 py-3 rounded-xl bg-white text-black font-medium hover:bg-gray-300 transition">Contact Me</a>
             <a href="#projects" className="px-6 py-3 rounded-xl border border-gray-700 hover:bg-gray-800 transition">View Projects</a>
-            <a href="/MuzammilaAhmedKhan's Resume.pdf" download className="px-6 py-3 rounded-xl border border-gray-700 flex items-center gap-2 hover:bg-gray-800 transition">
+            <a href="/MuzammilaAhmedKhanResume.pdf" download className="px-6 py-3 rounded-xl border border-gray-700 flex items-center gap-2 hover:bg-gray-800 transition">
               <Download size={18} /> Resume
             </a>
           </motion.div>
@@ -248,7 +248,7 @@ export default function Portfolio() {
             <a href="https://github.com/notmuzammil" target="_blank"><Github /></a>
             <a href="https://www.linkedin.com/in/muavgmil/" target="_blank"><Linkedin /></a>
             <a href="muzammil16oct2003@gmail.com"><Mail /></a>
-            <a href="03322726688"><Phone /></a>
+            <a href="tel:+923322726688"> <Phone /></a>
           </div>
         </div>
       </section>
