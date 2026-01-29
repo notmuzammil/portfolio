@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Download, Phone } from "lucide-react";
 
@@ -9,6 +9,21 @@ const fadeUp = {
 };
 
 export default function Portfolio() {
+  const roles = [
+  "Hi I'm a Full Stack Developer",
+  "Hi I'm a SQA Enthusiast",
+];
+
+const [currentRole, setCurrentRole] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentRole((prev) => (prev + 1) % roles.length);
+  }, 2000); // change text every 2 seconds
+
+  return () => clearInterval(interval);
+}, []);
+
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 font-sans">
       {/* NAVBAR */}
@@ -49,7 +64,7 @@ export default function Portfolio() {
           >
             Muzammil Ahmed Khan
           </motion.h1>
-          <motion.p
+          {/* <motion.p
             variants={fadeUp}
             initial="hidden"
             animate="visible"
@@ -57,7 +72,19 @@ export default function Portfolio() {
             className="mt-4 text-xl text-gray-400"
           >
             Software Engineer | MERN Stack Developer | SQA Enthusiast
-          </motion.p>
+          </motion.p> */}
+          <motion.p
+  key={currentRole}
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: -10 }}
+  transition={{ duration: 0.3 }}
+  className="mt-4 text-xl md:text-2xl font-medium text-gray-300"
+>
+  {roles[currentRole]}
+</motion.p>
+
+          
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -77,9 +104,11 @@ export default function Portfolio() {
           >
             <a href="#contact" className="px-6 py-3 rounded-xl bg-white text-black font-medium hover:bg-gray-300 transition">Contact Me</a>
             <a href="#projects" className="px-6 py-3 rounded-xl border border-gray-700 hover:bg-gray-800 transition">View Projects</a>
-            <a href="/MuzammiLaAhmedKhanResume.pdf" download className="px-6 py-3 rounded-xl border border-gray-700 flex items-center gap-2 hover:bg-gray-800 transition">
-              <Download size={18} /> Resume
-            </a>
+            <a href="/Resume.pdf.pdf" target="_blank" rel="noopener noreferrer"
+            className="px-6 py-3 rounded-xl border border-gray-700 flex items-center gap-2 hover:bg-gray-800 transition">
+           <Download size={18} /> Resume
+           </a>
+
           </motion.div>
         </div>
       </section>
@@ -186,29 +215,47 @@ export default function Portfolio() {
   </div>
 </section>
 
-      {/* EXPERIENCE */}
-      <section className="px-6 py-24 bg-gray-900/40">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-10">Experience</h2>
-          <div className="space-y-6">
-            {[{
-              role:'MERN Stack Intern',
-              company:'10Pearls',
-              desc:'Worked on full stack development using React, improved UI components, built a task management system CRUD and collaborated in an agile environment.'
-            },{
-              role:'Full Stack Developer Intern',
-              company:'Wenawa',
-              desc:'Contributed to full-stack features, API integration, and database operations using JavaScript and SQL.'
-            }].map((exp,i)=>(
-              <motion.div key={exp.company} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}} className="p-6 rounded-2xl bg-gray-900 hover:scale-105 transition-transform duration-300">
-                <h3 className="text-xl font-medium">{exp.role}</h3>
-                <p className="text-gray-400">{exp.company}</p>
-                <p className="mt-2 text-gray-400">{exp.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+     {/* EXPERIENCE */}
+<section className="px-6 py-24 bg-gray-900/40">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl font-semibold mb-10">Experience</h2>
+    <div className="space-y-6">
+      {[
+        {
+          role: 'MERN Stack Intern',
+          company: '10Pearls',
+          desc: 'Worked on full stack development using React, improved UI components, built a task management system CRUD and collaborated in an agile environment.',
+          link: 'https://www.linkedin.com/posts/muavgmil_10pearls-shineinternship-techforgood-activity-7331860294618509312-FMBH?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADqt8YoB04h62IEoTgYB7XG5XLu54GF9vT4' // Add your LinkedIn post URL here
+        },
+        {
+          role: 'Full Stack Developer Intern',
+          company: 'Wenawa',
+          desc: 'Contributed to full-stack features, API integration, and database operations using JavaScript and SQL.',
+          link: 'https://www.linkedin.com/posts/wenawa_wenawa-pakistan-independenceday-activity-7363442136635060226-xHkk?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADqt8YoB04h62IEoTgYB7XG5XLu54GF9vT4' // Add your LinkedIn post URL here
+        }
+      ].map((exp, i) => (
+        <motion.a
+          key={exp.company}
+          href={exp.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: i * 0.1 }}
+          className="block p-6 rounded-2xl bg-gray-900 hover:scale-105 transition-transform duration-300"
+        >
+          <h3 className="text-xl font-medium">{exp.role}</h3>
+          <p className="text-gray-400">{exp.company}</p>
+          <p className="mt-2 text-gray-400">{exp.desc}</p>
+        </motion.a>
+      ))}
+    </div>
+  </div>
+</section>
+
+      
 
       {/* PROJECTS */}
       <section id="projects" className="px-6 py-24 max-w-5xl mx-auto">
@@ -220,10 +267,10 @@ export default function Portfolio() {
             github:'https://github.com/notmuzammil/LegalEaseAI-Final-FYP-',
             image:'/legalEase.jpeg'
           },{
-            title:'Task Management Dashboard',
-            desc:'CRUD dashboard with role-based access, charts, and clean component architecture.',
-            github:'https://github.com/yourusername/task-dashboard',
-            image:'/projects/task-dashboard.png'
+            title:'Aasaan Shaadi-AI-PoweredWedding Planning Platform',
+            desc:'Aasaan Shaadi is an AI-powered wedding event planning platform designed to simplify and digitize wedding management in Pakistan. The platform enables users to discover verified vendors, create customized wedding packages, and manage end-to-end event planning from a single dashboard, a full-stack wedding planning platform with vendor management, customizable packages, and AI-driven recommendations. Focused on usability, scalability, and localized needs for the Pakistani wedding industry.',
+            github:'https://github.com/notmuzammil/Aasaan-Shaadi',
+            image:'/AsaanShadi.jpg'
           }].map((p,i)=>(
             <motion.div key={p.title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}} className="p-6 rounded-2xl bg-gray-900 hover:scale-105 transition-transform duration-300">
               <img src={p.image} alt={p.title} className="w-full h-48 object-cover rounded-xl mb-4" />
@@ -235,6 +282,18 @@ export default function Portfolio() {
             </motion.div>
           ))}
         </div>
+        <div className="mt-12 text-center">
+  <a
+    href="https://github.com/notmuzammil"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-700 text-gray-300 hover:bg-gray-800 hover:text-white transition"
+  >
+    <Github size={18} />
+    View more projects on GitHub
+  </a>
+</div>
+
       </section>
 
       {/* CONTACT */}
