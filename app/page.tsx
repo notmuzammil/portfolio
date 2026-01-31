@@ -265,10 +265,10 @@ useEffect(() => {
             title:'LegalEase_AI - AI-Powered Legal Assistant',
             desc:'LegalEase_AI is an AI-powered legal assistant leveraging RAG architecture and LLMs through Groq to deliver accurate, context-aware legal guidance. The system features JWT-based authentication, protected routes, RESTful APIs, and a responsive full-stack implementation with React, Node.js, and MongoDB.',
             github:'https://github.com/notmuzammil/LegalEaseAI-Final-FYP-',
-            image:'/legalEase.jpeg'
+            image:'/legalEase.png'
           },{
             title:'Aasaan Shaadi-AI-PoweredWedding Planning Platform',
-            desc:'Aasaan Shaadi is an AI-powered wedding event planning platform designed to simplify and digitize wedding management in Pakistan. The platform enables users to discover verified vendors, create customized wedding packages, and manage end-to-end event planning from a single dashboard, a full-stack wedding planning platform with vendor management, customizable packages, and AI-driven recommendations. Focused on usability, scalability, and localized needs for the Pakistani wedding industry.',
+            desc:'Aasaan Shaadi is an AI-powered wedding planning platform built for Pakistan, enabling users to discover verified vendors, create customized wedding packages, and manage end-to-end events from a single dashboard. The platform combines vendor management, AI-driven recommendations, and localized design to make wedding planning simple, scalable, and stress-free.',
             github:'https://github.com/notmuzammil/Aasaan-Shaadi',
             image:'/AsaanShadi.jpg'
           }].map((p,i)=>(
@@ -298,19 +298,102 @@ useEffect(() => {
 
       {/* CONTACT */}
       <section id="contact" className="px-6 py-24 bg-gray-900/40">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold mb-6">Let’s Connect</h2>
-          <p className="text-gray-400 mb-10">
-            I’m open to internships, trainee roles, and full-time opportunities.
-          </p>
-          <div className="flex justify-center gap-6">
-            <a href="https://github.com/notmuzammil" target="_blank"><Github /></a>
-            <a href="https://www.linkedin.com/in/muavgmil/" target="_blank"><Linkedin /></a>
-            <a href="muzammil16oct2003@gmail.com"><Mail /></a>
-            <a href="tel:+923322726688"> <Phone /></a>
-          </div>
-        </div>
-      </section>
+  <div className="max-w-5xl mx-auto text-center">
+    <h2 className="text-3xl font-semibold mb-4">Let’s Connect</h2>
+    <p className="text-gray-400 mb-12">
+      I’m open to internships, trainee roles, and full-time opportunities.
+    </p>
+
+    {/* Social Links */}
+    <div className="flex justify-center gap-6 mb-14">
+      <a href="https://github.com/notmuzammil" target="_blank" className="hover:text-blue-400">
+        <Github />
+      </a>
+      <a href="https://www.linkedin.com/in/muavgmil/" target="_blank" className="hover:text-blue-400">
+        <Linkedin />
+      </a>
+      <a href="mailto:muzammil16oct2003@gmail.com" className="hover:text-blue-400">
+        <Mail />
+      </a>
+      <a href="tel:+923322726688" className="hover:text-blue-400">
+        <Phone />
+      </a>
+    </div>
+
+    {/* Message Box */}
+    <form className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input
+        type="text"
+        placeholder="Full Name"
+        className="px-4 py-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-blue-500"
+        required
+      />
+
+      <input
+        type="email"
+        placeholder="Email Address"
+        className="px-4 py-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-blue-500"
+        required
+      />
+
+      <input
+        type="text"
+        placeholder="Subject"
+        className="md:col-span-2 px-4 py-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-blue-500"
+        required
+      />
+
+      <textarea
+        rows={5}
+        placeholder="Your Message"
+        className="md:col-span-2 px-4 py-3 rounded-lg bg-gray-800 text-white outline-none focus:ring-2 focus:ring-blue-500"
+        required
+      ></textarea>
+
+      <button
+        type="submit"
+        className="md:col-span-2 mt-4 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition font-medium"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+{/* FOOTER */}
+<footer className="px-6 py-10 bg-gray-950 border-t border-gray-800">
+  <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+    
+    {/* Left */}
+    <p className="text-gray-400 text-sm">
+      © {new Date().getFullYear()} Muzammil Ahmed. All rights reserved.
+    </p>
+
+    {/* Right */}
+    <div className="flex gap-5 text-gray-400">
+      <a
+        href="https://github.com/notmuzammil"
+        target="_blank"
+        className="hover:text-white transition"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/muavgmil/"
+        target="_blank"
+        className="hover:text-white transition"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="mailto:muzammil16oct2003@gmail.com"
+        className="hover:text-white transition"
+      >
+        Email
+      </a>
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 }
