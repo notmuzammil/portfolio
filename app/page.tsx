@@ -270,7 +270,7 @@ useEffect(() => {
             title:'Aasaan Shaadi-AI-PoweredWedding Planning Platform',
             desc:'Aasaan Shaadi is an AI-powered wedding planning platform built for Pakistan, enabling users to discover verified vendors, create customized wedding packages, and manage end-to-end events from a single dashboard. The platform combines vendor management, AI-driven recommendations, and localized design to make wedding planning simple, scalable, and stress-free.',
             github:'https://github.com/notmuzammil/Aasaan-Shaadi',
-            image:'/AsaanShadi.jpg'
+            image:'/Asaanshadi.jpg'
           }].map((p,i)=>(
             <motion.div key={p.title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}} className="p-6 rounded-2xl bg-gray-900 hover:scale-105 transition-transform duration-300">
               <img src={p.image} alt={p.title} className="w-full h-48 object-cover rounded-xl mb-4" />
